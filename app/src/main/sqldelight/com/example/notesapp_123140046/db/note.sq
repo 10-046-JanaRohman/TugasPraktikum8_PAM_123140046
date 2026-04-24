@@ -1,0 +1,44 @@
+CREATE TABLE notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL
+);
+
+selectAllNewest:
+SELECT id, title, content, created_at, updated_at
+FROM notes
+ORDER BY updated_at DESC;
+
+selectAllOldest:
+SELECT id, title, content, created_at, updated_at
+FROM notes
+ORDER BY updated_at ASC;
+
+selectById:
+SELECT id, title, content, created_at, updated_at
+FROM notes
+WHERE id = ?;
+
+searchNotes:
+SELECT id, title, content, created_at, updated_at
+FROM notes
+WHERE title LIKE ? OR content LIKE ?
+ORDER BY updated_at DESC;
+
+insertNote:
+INSERT INTO notes(title, content, created_at, updated_at)
+VALUES (?, ?, ?, ?);
+
+updateNote:
+UPDATE notes
+SET title = ?, content = ?, updated_at = ?
+WHERE id = ?;
+
+deleteNote:
+DELETE FROM notes
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM notes;
