@@ -32,6 +32,10 @@ Aplikasi ini tetap mendukung fitur utama Notes App seperti CRUD catatan, pencari
 - Menampilkan indikator ketika perangkat offline
 - Tetap dapat digunakan tanpa koneksi internet
 
+## Architecture diagram
+<img width="1783" height="916" alt="diagram" src="https://github.com/user-attachments/assets/9f4117b6-3b9b-4f3b-8abb-67e028ca7279" />
+
+
 ## Platform Specific Features
 
 Pada praktikum ini, aplikasi menerapkan fitur platform-specific yang berjalan pada Android.
