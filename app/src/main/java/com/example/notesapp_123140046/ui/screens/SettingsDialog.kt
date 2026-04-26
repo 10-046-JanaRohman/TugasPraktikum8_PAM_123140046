@@ -1,12 +1,18 @@
 package com.example.notesapp_123140046.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.example.notesapp_123140046.platform.DeviceInfo
+import org.koin.compose.koinInject
 
 @Composable
 fun SettingsDialog(
@@ -16,6 +22,8 @@ fun SettingsDialog(
     onThemeChange: (String) -> Unit,
     onSortOrderChange: (String) -> Unit
 ) {
+    val deviceInfo: DeviceInfo = koinInject()
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
@@ -23,6 +31,13 @@ fun SettingsDialog(
         },
         text = {
             Column {
+                Text("Device Info")
+                Text("Device: ${deviceInfo.getDeviceName()}")
+                Text("OS: ${deviceInfo.getOsVersion()}")
+                Text("App Version: ${deviceInfo.getAppVersion()}")
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 Text("Theme")
 
                 RadioOption(
@@ -42,6 +57,8 @@ fun SettingsDialog(
                     selected = currentTheme == "dark",
                     onClick = { onThemeChange("dark") }
                 )
+
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Text("Sort Order")
 

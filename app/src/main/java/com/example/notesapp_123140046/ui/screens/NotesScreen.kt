@@ -46,6 +46,10 @@ fun NotesScreen(
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
+            NetworkStatusIndicator()
+
+            Spacer(modifier = Modifier.height(8.dp))
+
             OutlinedTextField(
                 value = uiState.searchQuery,
                 onValueChange = viewModel::onSearchQueryChange,
